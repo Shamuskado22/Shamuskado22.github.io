@@ -23,7 +23,7 @@
   --primary-bg-color: #E9E9E9;
   --secondary-bg-color: #C7C8C9;
   --primary-border-color: #C7C8C9;
-  --secondary-border-color: #C7C8C9;
+  --secondary-border-color: #9A9A9C;
 
   --title-color: #0B0B0F;
   --text-color: #28292E;
@@ -33,6 +33,10 @@
 
 html[data-theme='light'] .brand__logo {
   filter: invert(1);
+}
+
+html[data-theme='light'] .skills__logo {
+  filter: invert(80%);
 }
 
 * {
@@ -66,6 +70,12 @@ i {
 h1 {
   font-size: 2.5rem;
   font-weight: 200;
+}
+
+h2 {
+  font-size: 2rem;
+  text-align: center;
+  margin-bottom: 2rem;
 }
 
 h1,
@@ -123,6 +133,7 @@ p {
   width: 100vw;
   position: fixed;
   bottom: 0;
+  z-index: 3;
 }
 
 .menu--mobile .menu__link {
@@ -159,11 +170,15 @@ p {
   gap: 1rem;
 }
 
-main {
+main,
+.projects {
   display: flex;
   flex-direction: column;
-  gap: 2rem;
   padding: 2.5rem 1rem;
+}
+
+main {
+  gap: 2rem;
 }
 
 .main__content1 {
@@ -175,6 +190,7 @@ main {
 .main__content2 iframe {
   width: 100%;
   aspect-ratio: 16/9;
+  background-color: white;
 }
 
 .skills {
@@ -196,7 +212,6 @@ main {
 .skills__list {
   display: flex;
   flex-flow: row wrap;
-  justify-content: space-between;
   gap: 0.72rem;
 }
 
@@ -216,6 +231,61 @@ main {
   height: 2.4rem;
 }
 
+.projects__card {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.projects__cards .card__body {
+  margin-bottom: 2rem;
+}
+
+.card__cover {
+  width: 100%;
+  border-radius: 0.5rem;
+  object-fit: cover;
+  object-position: center;
+}
+
+.card__body {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.card__title {
+  font-size: 1.5rem;
+}
+
+.card__description {
+  font-size: 1rem;
+  color: var(--text-color);
+}
+
+.card__list {
+  margin-left: 1rem;
+}
+
+.card__item {
+  list-style: disc;
+}
+
+.card__buttons {
+  display: flex;
+}
+
+.card__body .skills__item {
+  width: 4rem;
+  height: 4rem;
+}
+
+.card__body .skills__logo {
+  height: 2rem;
+}
+
 .menu--social {
   gap: 1rem;
 }
@@ -228,10 +298,13 @@ main {
   border-radius: 3.125rem;
   padding: 0.875rem 1.5rem;
   width: 100%;
+  cursor: pointer;
+  border: none;
+  color: var(--primary-color);
 }
 
 .btn:hover {
-  transform: scale(1.1);
+  transform: scale(1.04);
 }
 
 .btn span,
@@ -247,6 +320,7 @@ main {
 .btn--primary span {
   color: var(--primary-color);
 }
+
 
 footer p {
   text-align: center;
@@ -281,7 +355,13 @@ footer p {
     font-size: 4rem;
   }
 
-  main {
+  h2 {
+    font-size: 3rem;
+    letter-spacing: 0.4rem;
+  }
+
+  main,
+  .projects {
     padding: 8rem 6rem 6.25rem;
   }
 
@@ -297,12 +377,42 @@ footer p {
     margin-top: -6rem;
   }
 
+  .github__link .btn--primary {
+    width: auto;
+    margin: auto;
+  }
+
   footer p {
     margin-bottom: 0;
   }
 }
 
+@media (min-width: 992px) {
+  .projects__card {
+    flex-direction: row;
+  }
+
+  .projects__card.card--reverse {
+    flex-direction: row-reverse;
+    justify-content: space-between;
+  }
+
+  .card__cover {
+    width: 55%;
+  }
+
+  .github__link .btn--primary {
+    width: 70%;
+    margin: auto;
+  }
+}
+
+
 @media (min-width: 1200px) {
+  h2 {
+    font-size: 4rem;
+  }
+
   main {
     padding: 12rem 6rem 2rem;
   }
@@ -334,6 +444,27 @@ footer p {
   .skills__logo {
     height: 3rem;
   }
+
+  .projects__card {
+    flex-direction: row;
+  }
+
+  .card__cover {
+    width: 50%;
+  }
+
+  .card__title {
+    font-size: 3.25rem;
+  }
+
+  .card__description,
+  .card__item {
+    font-size: 1.25rem;
+  }
+
+  .card__buttons .btn {
+    width: auto;
+  }
 }
 
 @media (min-width: 1400px) {
@@ -341,15 +472,20 @@ footer p {
     font-size: 6.25rem;
   }
 
+  h2 {
+    font-size: 5rem;
+  }
+
   p {
     font-size: 1.5rem;
   }
-  
+
   .header {
     padding: 1rem 15rem;
   }
 
-  main {
+  main,
+  .projects {
     padding: 12rem 15rem 2rem;
   }
 
