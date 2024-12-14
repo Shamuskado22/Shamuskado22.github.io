@@ -21,7 +21,11 @@ accordionHeaders.forEach(header => {
     const accordionItem = header.parentElement;
     const accordionActive = accordionItem.classList.contains('active');
 
-    accordionActive ? accordionItem.classList.remove('active') : accordionItem.classList.add('active');
+    if (accordionActive) {
+      accordionItem.classList.remove('active');
+    } else {
+      accordionItem.classList.add('active');
+    }
   });
 });
 
