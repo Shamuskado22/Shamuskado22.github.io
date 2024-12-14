@@ -328,7 +328,6 @@ main {
 
 #accordion {
   border-radius: 0.5rem;
-  border: 1px solid var(--primary-border-color);
 }
 
 .accordion__header {
@@ -362,10 +361,11 @@ main {
 .accordion__body {
   font-size: 0.75rem;
   display: none;
-  padding: 1.25rem;
+  padding: 1rem;
   flex-direction: column;
   align-items: flex-start;
   gap: 0.625rem;
+  border: 1px solid var(--primary-border-color);
 }
 
 .accordion__item.active .accordion__header {
