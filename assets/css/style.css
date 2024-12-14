@@ -78,6 +78,10 @@ h2 {
   margin-bottom: 2rem;
 }
 
+h3 {
+  font-size: 1.5rem;
+}
+
 h1,
 h2,
 h3 {
@@ -88,7 +92,7 @@ h3 {
 }
 
 p {
-  font-size: 1.25rem;
+  font-size: 1rem;
   text-align: justify;
 }
 
@@ -171,7 +175,8 @@ p {
 }
 
 main,
-.projects {
+.projects,
+.about {
   display: flex;
   flex-direction: column;
   padding: 2.5rem 1rem;
@@ -321,6 +326,59 @@ main {
   color: var(--primary-color);
 }
 
+#accordion {
+  border-radius: 0.5rem;
+  border: 1px solid var(--primary-border-color);
+}
+
+.accordion__header {
+  background-color: transparent;
+  display: flex;
+  padding: 0.75rem 1rem;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  border: 1px solid var(--primary-border-color);
+}
+
+.accordion__header span {
+  color: var(--title-color);
+  font-size: 1.15rem;
+}
+
+.accordion__header.start {
+  border-radius: 0.25rem 0.25rem 0 0;
+}
+
+.accordion__header.end,
+.accordion__item.active .accordion__body.end {
+  border-radius: 0 0 0.25rem 0.25rem;
+}
+
+.accordion__item.active .accordion__header.end {
+  border-radius: 0;
+}
+
+.accordion__body {
+  font-size: 0.75rem;
+  display: none;
+  padding: 1.25rem;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.625rem;
+}
+
+.accordion__item.active .accordion__header {
+  background-color: var(--secondary-bg-color);
+}
+
+.accordion__item.active .accordion__body {
+  display: flex;
+}
+
+.accordion__item.active .bi-caret-down-fill {
+  transform: rotate(180deg);
+}
 
 footer p {
   text-align: center;
